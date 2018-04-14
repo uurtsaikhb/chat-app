@@ -27,6 +27,7 @@ const SignInStack = StackNavigator(
       ...defaultNavigationOptions
     }
   }
+  
 );
 
 const AppNavigation = TabNavigator(

@@ -9,8 +9,7 @@ target 'chatapp' do
 
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
-
+  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
 end
 

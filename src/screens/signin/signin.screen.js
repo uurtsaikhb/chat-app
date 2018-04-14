@@ -82,6 +82,13 @@ class SignInScreen extends Component {
   };
 
   render() {
+    firebase.auth().onAuthStateChanged(d => {
+        console.log('test');
+        if (d) {
+            this.props.navigation.navigate('App');
+        }
+    })
+    
     return (
       <Container style={styles.container}>
         <Item regular style={{ marginBottom: 5 }}>

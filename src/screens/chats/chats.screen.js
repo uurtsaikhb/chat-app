@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, TouchableHighlight } from 'react-native';
+import React, { Component } from "react";
+import { StyleSheet, View, TouchableHighlight } from "react-native";
 
 import {
   Container,
@@ -12,18 +12,29 @@ import {
   Right,
   Thumbnail,
   Text
-} from 'native-base';
+} from "native-base";
 
+import firebase from "react-native-firebase";
 export default class ChatsScreen extends Component {
+    state = {
+        data : '',
+        firestore : []
+    }
   static navigationOptions = {
-    title: 'Chats'
+    title: "Chats"
   };
 
   conversationHandler = () => {
-    console.log('clicked');
+    console.log("clicked");
   };
 
   render() {
+    firebase
+      .database()
+      .ref("test")
+      .on("value", d => this.setState({
+          data : d.val()
+      }));
     return (
       <Container>
         <Content>
@@ -36,14 +47,15 @@ export default class ChatsScreen extends Component {
               <Left>
                 <Thumbnail
                   source={{
-                    uri: 'https://placeimg.com/200/200/people/tech'
+                    uri: "https://placeimg.com/200/200/people/tech"
                   }}
                 />
               </Left>
               <Body>
                 <Text>Mandal Tsaschikher</Text>
                 <Text note>
-                  Doing what you like will always keep you happy . .
+                  Doing what you like will always keep you happy . . {this.state.data}
+                  {JSON.stringify(this.state.firestore)}
                 </Text>
               </Body>
               <Right>
@@ -58,7 +70,7 @@ export default class ChatsScreen extends Component {
               <Left>
                 <Thumbnail
                   source={{
-                    uri: 'https://placeimg.com/200/200/people'
+                    uri: "https://placeimg.com/200/200/people"
                   }}
                 />
               </Left>
@@ -80,7 +92,7 @@ export default class ChatsScreen extends Component {
               <Left>
                 <Thumbnail
                   source={{
-                    uri: 'https://placeimg.com/200/200/animal'
+                    uri: "https://placeimg.com/200/200/animal"
                   }}
                 />
               </Left>
@@ -104,7 +116,7 @@ export default class ChatsScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   }
 });

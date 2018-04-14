@@ -1,7 +1,11 @@
 # OSX
 #
 .DS_Store
+ios/Pods/
 
+package-lock.json
+ios/Podfile.lock
+ios/chatapp.xcodeproj
 # Xcode
 #
 build/
