@@ -9,8 +9,10 @@
   "dependencies": {
     "expo": "^26.0.0",
     "lodash": "^4.17.5",
+    "moment": "^2.22.0",
     "native-base": "^2.4.2",
     "react": "16.3.1",
+    "react-moment": "^0.7.0",
     "react-native": "0.55.2",
     "react-native-elements": "^0.19.1",
     "react-native-firebase": "^4.0.3",
